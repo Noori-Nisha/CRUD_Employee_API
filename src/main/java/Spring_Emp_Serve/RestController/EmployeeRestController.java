@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +32,13 @@ public class EmployeeRestController {
 	
 	@PostMapping("/insertjson")
 	public void InsertJsonMethod(@RequestBody Employee emp) {
+		emprepo.save(emp);
+	}
+	
+	//http://localhost:8080/updatejson
+	
+	@PutMapping("/updatejson")
+	public void UpdateJsonMethod(@RequestBody Employee emp) {
 		emprepo.save(emp);
 	}
 	
