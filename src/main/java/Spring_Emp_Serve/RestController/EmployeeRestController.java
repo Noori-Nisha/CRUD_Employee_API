@@ -3,7 +3,9 @@ package Spring_Emp_Serve.RestController;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +42,13 @@ public class EmployeeRestController {
 	@PutMapping("/updatejson")
 	public void UpdateJsonMethod(@RequestBody Employee emp) {
 		emprepo.save(emp);
+	}
+	
+	//http://localhost:8080/deletejson
+	
+	@DeleteMapping("/deletejson")
+	public void DeleteJsonMethod(@PathVariable("empid") long empid) {
+		emprepo.deleteById(empid);
 	}
 	
 }
