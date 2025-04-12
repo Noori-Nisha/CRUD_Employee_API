@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import Spring_Emp_Serve.Entity.Employee;
@@ -24,5 +26,12 @@ public class EmployeeRestController {
 		List<Employee> empdata = emprepo.findAll();		
 		return empdata;
 	}
-
+		
+	//http://localhost:8080/insertjson
+	
+	@PostMapping("/insertjson")
+	public void InsertJsonMethod(@RequestBody Employee emp) {
+		emprepo.save(emp);
+	}
+	
 }
